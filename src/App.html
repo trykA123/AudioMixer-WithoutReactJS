@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App.css">
+    <title>Audio Mixer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="mixer">
+            <div class="sliders">
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider1" orient="vertical" />
+                    <p>32Hz: <span id="span1"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider2" orient="vertical" />
+                    <p>64Hz: <span id="span2"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider3" orient="vertical" />
+                    <p>125Hz: <span id="span3"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider4" orient="vertical" />
+                    <p>250Hz: <span id="span4"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider5" orient="vertical" />
+                    <p>500Hz: <span id="span5"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider6" orient="vertical" />
+                    <p>1KHz: <span id="span6"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider7" orient="vertical" />
+                    <p>2KHz: <span id="span7"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider8" orient="vertical" />
+                    <p>4KHz: <span id="span8"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider9" orient="vertical" />
+                    <p>8KHz: <span id="span9"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider10" orient="vertical" />
+                    <p>16KHz: <span id="span10"></span></p>
+                </div>
+                <div id="decibles">
+                    <span id="up-decibles">20 dB</span>
+                    <span id="mid-decibles">0 dB</span>
+                    <span id="low-decibles">-20 dB</span>
+                </div>
+                <div>
+                    <input type="range" min="0" max="100" value="25" class="slider" id="volume" orient="vertical" />
+                    <p>Volume: <span id="span11"></span></p>
+                </div>
+            </div>         
+        </div>
+
+        <div class="tracklist">
+
+        </div>
+    </div>
+</body>
+<script src="App.js"></script>
+</html>
