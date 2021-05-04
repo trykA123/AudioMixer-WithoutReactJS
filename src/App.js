@@ -106,3 +106,78 @@ volume.oninput = function() {
 
 //#endregion
 //#endregion
+
+//#region Search for music in your playlist
+
+function searchForMusic() {
+  let input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById("search-music");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("music-list");
+  li = ul.getElementsByTagName("li");
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+//#endregion
+
+//#region dropdown for search button PC/YouTube
+
+function searchDropdown() {
+  document.getElementById("musicDropdown").classList.toggle("show");
+}
+
+window.onclick = function (event) {
+  if(!event.target.matches('.dropButton')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for(i=0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+//#endregion
+
+//#region Add music to the list
+
+var musicNodeList = document.getElementsByTagName("li");
+var i;
+for (i=0; i < musicNodeList.length; i++) {
+  var span = document.getElementsByTagName("span");
+  var txt = document.createTextNode("#9932;");
+  span.className = "close";
+  span.appendChild(txt);
+  musicNodeList[i].appendChild(span);
+}
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'li') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
+
+//#endregion
