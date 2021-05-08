@@ -98,13 +98,6 @@ slider9.oninput = function() {
 slider10.oninput = function() {
   output10.innerHTML = this.value;
 }
-// volume functions
-
-volume.addEventListener("mousemove", function() {
-  var x = volume.value;
-  var color = 'linear-gradient(90deg, rgb(117, 252, 117)' + x + '%, rgb(214,214,214)' + x + '%)';
-  volume.style.background = color;
-});
 
 //#endregion
 //#endregion

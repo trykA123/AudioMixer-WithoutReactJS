@@ -112,7 +112,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .col:nth-child(3) {
@@ -178,14 +178,14 @@ html, body {
 }
 
 .dropdown-content label {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content span {
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -268,7 +268,7 @@ li span {
 }
 
 .progress {
-    background-color: #242323;
+    background-color: #2f5477;
     height: 100%;
     border-radius: 5px;
     width: 0%;
@@ -283,11 +283,16 @@ li span {
     justify-content: space-between;
 }
 
+.duration-wrap span {
+    color: white;
+}
+
 #title {
     font-size: 40px;
     text-align: center;
     margin: 0;
     height: 15%;
+    color: white;
 }
   
 #artist {
@@ -295,7 +300,9 @@ li span {
     text-align: center;
     margin: 0;
     height: 10%;
+    color: white;
 }
+
 
 .music-player-controls {
     width: 100%;

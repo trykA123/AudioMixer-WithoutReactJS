@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="./css/App.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <title>Audio Mixer</title>
 </head>
@@ -69,7 +69,7 @@
                 <div class="dropdown">
                     <button onclick="searchDropdown()" class="dropButton">Add Music</button>
                     <div id="musicDropdown" class="dropdown-content">
-                        <label class="add-from-pc" onclick="newElementFromPc()"><input type="submit" id="just-upload"
+                        <label class="add-from-pc" ><input type="submit" onclick="newElementFromPc()" id="just-upload"
                             />From PC</label>
                         <span class="from-youtube" id="from-Youtube">From YouTube</span>
                     </div>
@@ -86,28 +86,18 @@
                     <li><span>7</span></li>
                     <li><span>8</span></li>
                     <li><span>9</span></li>
-                    <li><span>10</span></li>
-                    <li><span>1</span></li>
-                    <li><span>2</span></li>
-                    <li><span>4</span></li>
-                    <li><span>4</span></li>
-                    <li><span>5</span></li>
-                    <li><span>6</span></li>
-                    <li><span>7</span></li>
-                    <li><span>8</span></li>
-                    <li><span>9</span></li>
-                    <li><span>10</span></li>                  
+                    <li><span>10</span></li>             
                 </ul>
             </div>
             <div class="col" id="music-player">
-                <h2 id="title">asdas</h2>
-                <h3 id="artist">asdas</h3>
+                <h2 id="title"></h2>
+                <h3 id="artist"></h3>
                 <audio src=""></audio>
                 <div class="progress-container-music" id="progress-container-music">
                     <div class="progress" id="progress"></div>
                     <div class="duration-wrap">
-                        <span id="current-time">12</span>
-                        <span id="duration">24</span>
+                        <span id="current-time"></span>
+                        <span id="duration"></span>
                     </div>
                 </div>              
                     <div class="music-player-controls">
@@ -117,12 +107,14 @@
                     </div>
                 <div id="volume-player">
                     <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="30" class="volume" id="myVolume">
+                    <input type="range" min="1" max="100" value="50" class="volume" id="myVolume">
                     <i class="fa fa-volume-up"></i>
                 </div>                              
             </div>
         </div>
     </div>
 </body>
-<script src="App.js"></script>
+<script src="./src/App.mjs"></script>
+<script src="./src/musicPlayer.mjs"></script>
+<script src="./src/aws-data.mjs"></script>
 </html>

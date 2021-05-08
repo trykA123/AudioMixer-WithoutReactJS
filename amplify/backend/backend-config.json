@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "audiomixerapp6ad179ee": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "music": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
