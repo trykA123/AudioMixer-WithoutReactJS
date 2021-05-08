@@ -40,8 +40,8 @@ var slider10 = document.getElementById("slider10");
 var output10 = document.getElementById("span10");
 //#endregion
 //#region volume variable
-var volume = document.getElementById("volume");
-var output11 = document.getElementById("span11");
+var volume = document.getElementById("myVolume");
+
 //#endregion
 
 // Display sliders value
@@ -55,7 +55,6 @@ output7.innerHTML = slider7.value;
 output8.innerHTML = slider8.value;
 output9.innerHTML = slider9.value;
 output10.innerHTML = slider10.value;
-output11.innerHTML = volume.value;
 
 //#region Sliders Functions
 
@@ -100,9 +99,12 @@ slider10.oninput = function() {
   output10.innerHTML = this.value;
 }
 // volume functions
-volume.oninput = function() {
-  output11.innerHTML = this.value;
-}
+
+volume.addEventListener("mousemove", function() {
+  var x = volume.value;
+  var color = 'linear-gradient(90deg, rgb(117, 252, 117)' + x + '%, rgb(214,214,214)' + x + '%)';
+  volume.style.background = color;
+});
 
 //#endregion
 //#endregion
@@ -110,15 +112,15 @@ volume.oninput = function() {
 //#region Search for music in your playlist
 
 function searchForMusic() {
-  let input, filter, ul, li, a, i, txtValue;
+  let input, filter, ul, li, span, i, txtValue;
   input = document.getElementById("search-music");
   filter = input.value.toUpperCase();
   ul = document.getElementById("music-list");
   li = ul.getElementsByTagName("li");
 
   for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
+    span = li[i].getElementsByTagName("span")[0];
+    txtValue = span.textContent || span.innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = "";
     } else {
@@ -152,32 +154,23 @@ window.onclick = function (event) {
 
 //#region Add music to the list
 
-var musicNodeList = document.getElementsByTagName("li");
-var i;
-for (i=0; i < musicNodeList.length; i++) {
-  var span = document.getElementsByTagName("span");
-  var txt = document.createTextNode("#9932;");
-  span.className = "close";
-  span.appendChild(txt);
-  musicNodeList[i].appendChild(span);
+
+function newElementFromPc() {
+  var li = document.createElement("li");
+  var span = document.createElement("span");
+  var inputValue = document.getElementById("add-from-PC").value;
+  var t = document.createTextNode(inputValue);
+  var justUpload = document.getElementById("just-upload");
+  var addMusic = document.getElementById("music-list");
+  span.appendChild(t);
+  li.appendChild(span);
+
+  addMusic.appendChild(li); 
+  if (inputValue != "") {    
+    justUpload.click();
+  };
+  document.getElementById("add-from-PC").value = ""; 
 }
-
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'li') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
 
 
 //#endregion

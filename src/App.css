@@ -2,7 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     background: rgb(13,24,33);
-    background: linear-gradient(90deg, rgba(13,24,33,1) 0%, rgba(0,0,0,1) 36%, rgba(48,61,79,1) 100%);
+    background: linear-gradient(90deg, rgba(13, 24, 33, 0.87) 0%, rgba(0,0,0,1) 36%, rgba(48,61,79,1) 100%);
     overflow: hidden;
 }
 
@@ -28,10 +28,12 @@ html, body {
 }
 
 .tracklist {
+    display: flex;
     width: 30%;
     height: 80%;
-    background-color: brown;
     margin: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .sliders {
@@ -86,10 +88,41 @@ html, body {
     margin:15% 2% 0 2%;
 }
 
-.header {
-    display: inline-flex;
+.col {
     width: 100%;
-    height: 15%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.col:nth-child(1) {
+    flex: 1 1 10%;
+    height: 10%;
+}
+
+.col:nth-child(2) {
+    flex: 1 1 60%;
+    height: 60%;
+}
+
+#music-list {
+    list-style-type: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.col:nth-child(3) {
+    flex: 1 1 30%;
+    height: 30%;
+}
+
+#header {
+    display:flex;
+    width: 100%;
 }
 
 .close {
@@ -100,16 +133,21 @@ html, body {
 }
 
 #search-div {
-    width: 70%;
     height: 100%;
+    flex: 1 1 70%;
 }
 
+.dropdown {
+    flex: 1 1 30%;
+    height: 100%;
+    margin-left: 4%;
+}
+
+
 #search-music {
-    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
     background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    margin-top: 10%;
+    width: 90%; /* Full-width */
+    margin-top: 6%;
     margin-left: 4%;
     font-size: 16px; /* Increase font-size */
     padding: 6px 10px 6px 10px; /* Add some padding */
@@ -118,17 +156,13 @@ html, body {
     float: left;
 }
 
-.dropdown {
-    width: 30%;
-}
-
 .dropButton {
     background-color: #555;
     color: #ddd;
+    width: 80%;
     padding: 16px;
     font-size: 16px;
-    margin-top: 17%;
-    margin-left: 30%;
+    margin-top: 7%;
     border: none;
     cursor: pointer;
 }
@@ -164,6 +198,7 @@ html, body {
 .dropdown span:hover {
     background-color: rgb(179, 31, 31);
 }
+
 .show {
     display: block;
 }
@@ -172,22 +207,26 @@ html, body {
     display: none;
 }
 
-#music-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+#just-upload {
+    display: none;
 }
 
-#music-list li a { 
+#music-list li { 
+    height: 10%;
     cursor: pointer;
-    border: 1px solid #ddd; /* Add a border to all links */
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
+    color: wheat; /* Add a black text color */
     display: block; /* Make it into a block element to fill the whole list */
+    transition: 0.2s;
+}
+
+#music-list li:hover {
+    background-color: aqua;
+}
+li span {
+    text-align: center;
 }
 
 
@@ -209,4 +248,148 @@ html, body {
 
 .addMusics:hover {
     background: grey;
+}
+
+
+#music-player {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.progress-container-music {
+    background: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:5%;
+    width: 90%;
+    height: 5%;
+}
+
+.progress {
+    background-color: #242323;
+    height: 100%;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.duration-wrap {
+    height: 15%;
+    margin-top: 4%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+#title {
+    font-size: 40px;
+    text-align: center;
+    margin: 0;
+    height: 15%;
+}
+  
+#artist {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+    height: 10%;
+}
+
+.music-player-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40%;
+    margin-top: 8%;
+}
+
+#prev {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+#play {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+#next {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.fas {
+    font-size: 25px;
+    color: rgb(224, 212, 212);
+    cursor: pointer;
+    user-select: none;
+}
+
+.fas:hover {
+    filter: brightness(80%);
+}
+
+#volume-player {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.fa {
+    font-size: 25px;
+    color: aliceblue;
+}
+
+.fa-volume-down{
+    flex: 0 1 auto;
+    width: 10%;
+}
+
+.fa-volume-up {
+    flex: 0 1 auto;
+    width: 10%;
+    margin-left: 5%;
+}
+
+.volume {
+    flex: 0 1 auto;
+    width: 80%;
+    background: linear-gradient(90deg, rgb(117, 252, 117), rgb(214, 214, 214) 60%);
+    -webkit-appearance: none;
+    outline: none;
+    opacity: 0.6;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 12px;
+    box-shadow: 0px 1px 10px 1px black;
+}
+
+
+.volume:hover {
+    opacity: 1;
+}
+
+.volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.volume::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
 }
