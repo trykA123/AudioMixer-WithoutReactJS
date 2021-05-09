@@ -13,7 +13,7 @@
         <div class="mixer">
             <div class="sliders">
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider1" orient="vertical" />
+                    <input type="range" min="-20" max="20" value="12" class="slider" id="slider1" orient="vertical" />
                     <p>32Hz: <span id="span1"></span></p>
                 </div>
                 <div>
@@ -45,11 +45,11 @@
                     <p>4KHz: <span id="span8"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider9" orient="vertical" />
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider9" orient="vertical" step="1" />
                     <p>8KHz: <span id="span9"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="2" class="slider" id="slider10" orient="vertical" />
+                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider10" orient="vertical" step="1" />
                     <p>16KHz: <span id="span10"></span></p>
                 </div>
                 <div id="decibles">
@@ -69,7 +69,7 @@
                 <div class="dropdown">
                     <button onclick="searchDropdown()" class="dropButton">Add Music</button>
                     <div id="musicDropdown" class="dropdown-content">
-                        <label class="add-from-pc" ><input type="submit" onclick="newElementFromPc()" id="just-upload"
+                        <label class="add-from-pc"><input type="submit" onclick="newElementFromPc()" id="just-upload"
                             />From PC</label>
                         <span class="from-youtube" id="from-Youtube">From YouTube</span>
                     </div>
@@ -77,7 +77,7 @@
             </div>
             <div class="col" id="playlist">
                 <ul id="music-list">
-                    <li><span>lorem</span></li>
+                    <li><span></span></li>
                     <li><span>2</span></li>
                     <li><span>4</span></li>
                     <li><span>4</span></li>
@@ -92,7 +92,7 @@
             <div class="col" id="music-player">
                 <h2 id="title"></h2>
                 <h3 id="artist"></h3>
-                <audio src=""></audio>
+                <audio crossorigin="anonymous" src=""></audio>
                 <div class="progress-container-music" id="progress-container-music">
                     <div class="progress" id="progress"></div>
                     <div class="duration-wrap">
@@ -107,7 +107,7 @@
                     </div>
                 <div id="volume-player">
                     <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="50" class="volume" id="myVolume">
+                    <input type="range" min="1" max="100" value="30" class="volume" id="myVolume">
                     <i class="fa fa-volume-up"></i>
                 </div>                              
             </div>

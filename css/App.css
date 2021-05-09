@@ -143,7 +143,6 @@ html, body {
     margin-left: 4%;
 }
 
-
 #search-music {
     background-repeat: no-repeat; /* Do not repeat the icon image */
     width: 90%; /* Full-width */
@@ -228,7 +227,6 @@ html, body {
 li span {
     text-align: center;
 }
-
 
 .addMusics {
     margin-top: 2%;

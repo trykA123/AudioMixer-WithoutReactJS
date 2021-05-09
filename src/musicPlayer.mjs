@@ -14,11 +14,29 @@ let songIndex = 0;
 // Music
 const songs = [
     {
-      path: 'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/3.mp3',
-      displayName: 'Powerless',    
-      artist: 'Linkin Park',                                                                
+      path: "http://127.0.0.1:8080/1.mp3",
+      displayName: 'Måns Zelmerlöw',    
+      artist:'Fuego',    
+    },
+    {
+      path: "http://127.0.0.1:8080/2.mp3",
+      displayName: 'Shadow',    
+      artist:'BTS',    
     }
 ];
+
+
+
+function addSongToUl(song) {
+  let musicList = document.getElementById("music-list")
+  const li = document.createElement('li')
+  const span = document.createElement('span')
+  span.textContent = song.displayName + song.artist
+  li.append(span)
+  musicList.append(li)
+}
+
+addSongToUl(songs[songIndex])
 
 // Check if Playing
 let isPlaying = false;
@@ -44,6 +62,7 @@ playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 
 // Update DOM
 function loadSong(song) {
+  console.log(song)
   title.textContent = song.displayName;
   artist.textContent = song.artist;
   music.src = song.path;

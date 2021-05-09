@@ -56,47 +56,156 @@ output8.innerHTML = slider8.value;
 output9.innerHTML = slider9.value;
 output10.innerHTML = slider10.value;
 
+//#region Music manipulation
+
+const context = new AudioContext()
+const audioElement = document.querySelector('audio')
+const track = context.createMediaElementSource(audioElement)
+//const gainNode = context.createGain()
+let analyser = context.createAnalyser()
+
+let bassEQ1 = new BiquadFilterNode(context, {
+  type: "peaking",
+  frequency: 350,
+  gain: slider1.value
+})
+
+let bassEQ2 = new BiquadFilterNode(context, {
+  type: "lowshelf",
+  frequency: 400,
+  gain: slider2.value
+})
+
+let bassEQ3 = new BiquadFilterNode(context, {
+  type: "lowshelf",
+  frequency: 500,
+  gain: slider3.value
+})
+
+const bassEQ4 = new BiquadFilterNode(context, {
+  type: "lowshelf",
+  frequency: 750,
+  gain: slider4.value
+})
+
+const bassEQ5 = new BiquadFilterNode(context, {
+  type: "lowshelf",
+  frequency: 1000,
+  gain: slider5.value
+})
+
+const bassEQ6 = new BiquadFilterNode(context, {
+  type: "lowshelf",
+  frequency: 1500,
+  gain: slider6.value
+})
+
+const bassEQ7 = new BiquadFilterNode(context, {
+  type: 'peaking',
+  Q: Math.SQRT1_2,
+  frequency: 2000,
+  gain: slider7.value
+})
+
+let highEQ8 = new BiquadFilterNode(context, {
+  type: 'peaking',
+  Q: Math.SQRT1_2,
+  frequency: 4000,
+  gain: slider8.value
+})
+
+let highEQ9 = new BiquadFilterNode(context, {
+  type: "highshelf",
+  frequency: 8000,
+  gain: slider9.value
+})
+
+let highEQ10 = new BiquadFilterNode(context, {
+  type: "highshelf",
+  frequency: 16000,
+  gain: slider10.value,
+})
+
+//track.connect(gainNode).connect(context.destination)
+
+
+
+//#endregion
+
 //#region Sliders Functions
 
 // 32Hz slider function
-slider1.oninput = function() {
+slider1.oninput = function(e) {
   output1.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ1.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ1).connect(context.destination)
 }
 // 64Hz slider function
-slider2.oninput = function() {
+slider2.oninput = function(e) {
   output2.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ2.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ2).connect(context.destination)
 }
 // 125Hz slider function
-slider3.oninput = function() {
+slider3.oninput = function(e) {
   output3.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ3.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ3).connect(context.destination)
 }
 // 200Hz slider function
-slider4.oninput = function() {
+slider4.oninput = function(e) {
   output4.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ4.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ4).connect(context.destination)
 }
 // 500Hz slider function
-slider5.oninput = function() {
+slider5.oninput = function(e) {
   output5.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ6.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ6).connect(context.destination)
 }
 // 1KHz slider function
-slider6.oninput = function() {
+slider6.oninput = function(e) {
   output6.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ6.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ6).connect(context.destination)
 }
 // 2KHz slider function
-slider7.oninput = function() {
+slider7.oninput = function(e) {
   output7.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  bassEQ7.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(bassEQ7).connect(context.destination)
 }
 // 4KHz slider function
-slider8.oninput = function() {
+slider8.oninput = function(e) {
   output8.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  highEQ8.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(highEQ8).connect(context.destination)
 }
 // 8KHz slider function
-slider9.oninput = function() {
+slider9.oninput = function(e) {
   output9.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  highEQ9.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(highEQ9).connect(context.destination)
 }
 // 16KHz slider function
-slider10.oninput = function() {
+slider10.oninput = function(e) {
   output10.innerHTML = this.value;
+  let value = parseInt(e.target.value)
+  highEQ10.gain.setTargetAtTime(value, context.currentTime, .01)
+  track.connect(highEQ10).connect(context.destination)
+    //console.log(value)
+  //console.log(e.target)
+  //console.log(e.target.value)
 }
 
 //#endregion
@@ -142,28 +251,5 @@ window.onclick = function (event) {
     }
   }
 }
-
-//#endregion
-
-//#region Add music to the list
-
-
-function newElementFromPc() {
-  var li = document.createElement("li");
-  var span = document.createElement("span");
-  var inputValue = document.getElementById("add-from-PC").value;
-  var t = document.createTextNode(inputValue);
-  var justUpload = document.getElementById("just-upload");
-  var addMusic = document.getElementById("music-list");
-  span.appendChild(t);
-  li.appendChild(span);
-
-  addMusic.appendChild(li); 
-  if (inputValue != "") {    
-    justUpload.click();
-  };
-  document.getElementById("add-from-PC").value = ""; 
-}
-
 
 //#endregion
