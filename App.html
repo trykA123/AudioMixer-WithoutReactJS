@@ -4,117 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/App.css">
+    <link rel="stylesheet" type="text/css" href="css/App.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <title>Audio Mixer</title>
 </head>
 <body>
     <div class="container">
         <div class="mixer">
-            <div class="sliders">
+            <div class="sliders" id="sliders">
                 <div>
-                    <input type="range" min="-20" max="20" value="12" class="slider" id="slider1" orient="vertical" />
-                    <p>32Hz: <span id="span1"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider1" orient="vertical"/>
+                    <p>25Hz: <span id="span1"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider2" orient="vertical" />
-                    <p>64Hz: <span id="span2"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider2" orient="vertical"/>
+                    <p>40Hz: <span id="span2"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider3" orient="vertical" />
-                    <p>125Hz: <span id="span3"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider3" orient="vertical"/>
+                    <p>63Hz: <span id="span3"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider4" orient="vertical" />
-                    <p>250Hz: <span id="span4"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider4" orient="vertical"/>
+                    <p>100Hz: <span id="span4"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider5" orient="vertical" />
-                    <p>500Hz: <span id="span5"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider5" orient="vertical"/>
+                    <p>160Hz: <span id="span5"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider6" orient="vertical" />
-                    <p>1KHz: <span id="span6"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider6" orient="vertical"/>
+                    <p>250Hz: <span id="span6"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider7" orient="vertical" />
-                    <p>2KHz: <span id="span7"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider7" orient="vertical"/>
+                    <p>400Hz: <span id="span7"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider8" orient="vertical" />
-                    <p>4KHz: <span id="span8"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider8" orient="vertical"/>
+                    <p>630Hz: <span id="span8"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider9" orient="vertical" step="1" />
-                    <p>8KHz: <span id="span9"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider9" orient="vertical"/>
+                    <p>1KHz: <span id="span9"></span></p>
                 </div>
                 <div>
-                    <input type="range" min="-20" max="20" value="0" class="slider" id="slider10" orient="vertical" step="1" />
-                    <p>16KHz: <span id="span10"></span></p>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider10" orient="vertical" />
+                    <p>1.6KHz: <span id="span10"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider11" orient="vertical"/>
+                    <p>2.5KHz: <span id="span11"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider12" orient="vertical"/>
+                    <p>4KHz: <span id="span12"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider13" orient="vertical"/>
+                    <p>6.3KHz: <span id="span13"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider14" orient="vertical"/>
+                    <p>10KHz: <span id="span14"></span></p>
+                </div>
+                <div>
+                    <input type="range" min="0.1" max="10" value="1" step="0.1" class="slider" id="slider15" orient="vertical"/>
+                    <p>16KHz: <span id="span15"></span></p>
                 </div>
                 <div id="decibles">
                     <span id="up-decibles">20 dB</span>
                     <span id="mid-decibles">0 dB</span>
                     <span id="low-decibles">-20 dB</span>
                 </div>
-
-            </div>         
+            </div>        
         </div>
-
-        <div class="tracklist">
-            <div class="col" id="header">
-                <div id="search-div">
-                    <input type="text" id="search-music" placeholder="Search for music" onkeyup="searchForMusic()">
+    </div>
+    <div class="music-container">
+        <div class="music-player">
+            <h2 id="title"></h2>
+            <h3 id="artist"></h3>
+            <audio crossorigin="anonymous" src=""></audio>
+            <div class="progress-container-music" id="progress-container-music">
+                <div class="progress" id="progress"></div>
+                <div class="duration-wrap">
+                    <span id="current-time"></span>
+                    <span id="duration"></span>
                 </div>
-                <div class="dropdown">
-                    <button onclick="searchDropdown()" class="dropButton">Add Music</button>
-                    <div id="musicDropdown" class="dropdown-content">
-                        <label class="add-from-pc"><input type="submit" onclick="newElementFromPc()" id="just-upload"
-                            />From PC</label>
-                        <span class="from-youtube" id="from-Youtube">From YouTube</span>
-                    </div>
+            </div>              
+                <div class="music-player-controls">
+                    <i class="fas fa-backward" id="prev" title="Previous"></i>
+                    <i class="fas fa-play main-button" id="play" title="Play"></i>
+                    <i class="fas fa-forward" id="next" title="Next"></i>
                 </div>
-            </div>
-            <div class="col" id="playlist">
-                <ul id="music-list">
-                    <li><span></span></li>
-                    <li><span>2</span></li>
-                    <li><span>4</span></li>
-                    <li><span>4</span></li>
-                    <li><span>5</span></li>
-                    <li><span>6</span></li>
-                    <li><span>7</span></li>
-                    <li><span>8</span></li>
-                    <li><span>9</span></li>
-                    <li><span>10</span></li>             
-                </ul>
-            </div>
-            <div class="col" id="music-player">
-                <h2 id="title"></h2>
-                <h3 id="artist"></h3>
-                <audio crossorigin="anonymous" src=""></audio>
-                <div class="progress-container-music" id="progress-container-music">
-                    <div class="progress" id="progress"></div>
-                    <div class="duration-wrap">
-                        <span id="current-time"></span>
-                        <span id="duration"></span>
-                    </div>
-                </div>              
-                    <div class="music-player-controls">
-                        <i class="fas fa-backward" id="prev" title="Previous"></i>
-                        <i class="fas fa-play main-button" id="play" title="Play"></i>
-                        <i class="fas fa-forward" id="next" title="Next"></i>
-                    </div>
-                <div id="volume-player">
-                    <i class="fa fa-volume-down"></i>
-                    <input type="range" min="1" max="100" value="30" class="volume" id="myVolume">
-                    <i class="fa fa-volume-up"></i>
-                </div>                              
-            </div>
+            <div id="volume-player">
+                <i class="fa fa-volume-down"></i>
+                <input type="range" min="1" max="100" value="10" class="volume" id="myVolume" />
+                <i class="fa fa-volume-up"></i>
+            </div>                              
         </div>
     </div>
 </body>
-<script src="./src/App.mjs"></script>
-<script src="./src/musicPlayer.mjs"></script>
-<script src="./src/aws-data.mjs"></script>
+<script type="text/javascript" src="/src/App.mjs"></script>
+<script type="text/javascript" src="/src/musicPlayer.mjs"></script>
+<script type="text/javascript" src="/src/aws-data.mjs"></script>
+<script type="text/javascript" src="./src/equalizer.js"></script>
 </html>

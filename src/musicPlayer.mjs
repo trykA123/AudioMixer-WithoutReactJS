@@ -15,8 +15,8 @@ let songIndex = 0;
 const songs = [
     {
       path: "http://127.0.0.1:8080/1.mp3",
-      displayName: 'Måns Zelmerlöw',    
-      artist:'Fuego',    
+      displayName: 'Fuego',    
+      artist:'Måns Zelmerlöw',    
     },
     {
       path: "http://127.0.0.1:8080/2.mp3",
@@ -24,19 +24,6 @@ const songs = [
       artist:'BTS',    
     }
 ];
-
-
-
-function addSongToUl(song) {
-  let musicList = document.getElementById("music-list")
-  const li = document.createElement('li')
-  const span = document.createElement('span')
-  span.textContent = song.displayName + song.artist
-  li.append(span)
-  musicList.append(li)
-}
-
-addSongToUl(songs[songIndex])
 
 // Check if Playing
 let isPlaying = false;
@@ -128,12 +115,7 @@ function setProgressBar(e) {
 }
 
 
-volume.addEventListener("mousemove", function() {
-    var x = volume.value;
-    var color = 'linear-gradient(90deg, rgb(117, 252, 117)' + x + '%, rgb(214,214,214)' + x + '%)';
-    volume.style.background = color;
-    music.volume = x / 100;
-});
+// resetValue()" id="reset
 
 // Event Listeners
 prevBtn.addEventListener('click', prevSong);

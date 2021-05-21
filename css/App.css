@@ -12,36 +12,35 @@ html, body {
 
 .container {
     display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 45vh;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 3%;
+}
+
+.music-container {
+    display: flex;
     flex-direction: row;
     width: 90vw;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
-    margin: 5%;
+    height: 45vh;
 }
 
 .mixer {
-    align-items: left;
-    width: 60%;
-    height: 80%;
-    margin: auto;
-}
-
-.tracklist {
     display: flex;
-    width: 30%;
-    height: 80%;
-    margin: auto;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
 }
 
 .sliders {
     display: flex;
     flex-direction: row;
-    justify-content: left;
-    align-items: left;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .sliders p {
@@ -58,7 +57,7 @@ html, body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 669px;
+    height: 80%;
     color: white;
 }
 
@@ -80,180 +79,32 @@ html, body {
     top: 94%;
 }
 
-.sliders input {
+.slider{
     writing-mode: bt-lr; /* IE */
     -webkit-appearance: slider-vertical; /* WebKit */
+    background: linear-gradient( rgb(117, 252, 117), rgb(9, 11, 150) 60%);
     width: 18px;
     height: 100%;
     margin:15% 2% 0 2%;
 }
 
-.col {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.col:nth-child(1) {
-    flex: 1 1 10%;
-    height: 10%;
-}
-
-.col:nth-child(2) {
-    flex: 1 1 60%;
-    height: 60%;
-}
-
-#music-list {
-    list-style-type: none;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
-.col:nth-child(3) {
-    flex: 1 1 30%;
-    height: 30%;
-}
-
-#header {
-    display:flex;
-    width: 100%;
-}
-
-.close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-}
-
-#search-div {
-    height: 100%;
-    flex: 1 1 70%;
-}
-
-.dropdown {
-    flex: 1 1 30%;
-    height: 100%;
-    margin-left: 4%;
-}
-
-#search-music {
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 90%; /* Full-width */
-    margin-top: 6%;
-    margin-left: 4%;
-    font-size: 16px; /* Increase font-size */
-    padding: 6px 10px 6px 10px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-    float: left;
-}
-
-.dropButton {
-    background-color: #555;
-    color: #ddd;
-    width: 80%;
-    padding: 16px;
-    font-size: 16px;
-    margin-top: 7%;
-    border: none;
+.slider::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 16px;
+    width: 36px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content label {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content span {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown label:hover {
-    background-color: rgb(179, 31, 31);
-}
-
-.dropdown span:hover {
-    background-color: rgb(179, 31, 31);
-}
-
-.show {
-    display: block;
-}
-
-.add-from-pc input[type="file"] {
-    display: none;
-}
-
-#just-upload {
-    display: none;
-}
-
-#music-list li { 
-    height: 10%;
-    cursor: pointer;
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: wheat; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
-    transition: 0.2s;
-}
-
-#music-list li:hover {
-    background-color: aqua;
-}
-li span {
-    text-align: center;
-}
-
-.addMusics {
-    margin-top: 2%;
-    margin-left: 4%;
-    padding: 6px 10px 6px 10px;
-    width: 22%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 2px;
-    border: 1px solid #ddd;
-}
-
-.addMusics:hover {
-    background: grey;
-}
-
-
-#music-player {
+.music-player {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    height: 100%;
+    height: 80%;
+    width: 40%;
+    margin: 3% 3% 2% 10%;
+    padding: 5%;
 }
 
 .progress-container-music {
@@ -342,7 +193,6 @@ li span {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 5%;
     width: 100%;
 }
 
@@ -365,7 +215,7 @@ li span {
 .volume {
     flex: 0 1 auto;
     width: 80%;
-    background: linear-gradient(90deg, rgb(117, 252, 117), rgb(214, 214, 214) 60%);
+    background: linear-gradient(90deg, rgb(117, 252, 117), rgb(214, 214, 214) 30%);
     -webkit-appearance: none;
     outline: none;
     opacity: 0.6;
@@ -402,19 +252,19 @@ li span {
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
   
   /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #f1f1f1; 
-  }
+}
    
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #888; 
-  }
+}
   
   /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #555; 
-  }
+}
